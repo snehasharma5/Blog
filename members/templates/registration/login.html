@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+    {% block head %}
+        <title>Login</title>
+    {% endblock %}
+    {% block content %}
+
+        <div class="card mb-3" style="margin-top: 4%; box-shadow: -2px -2px 20px 2px;">
+            <div class="row no-gutters">
+                <div class="col-md-4" style="text-align:center;">
+                    <img src="{% static 'members/images/login.jpg' %}">
+                </div>
+            <div class="col-md-8" style="padding: 100px;">
+                <h1>Login..</h1>
+                <br>
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="username" placeholder="Enter Username">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" name="password" placeholder="Enter Password">
+                    </div>
+                    <button class="btn btn-primary">LOGIN</button><br><br>
+                    <small>Not Registered <a href="{% url 'register' %}"> Sign UP</a> here.</small>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% endblock %}

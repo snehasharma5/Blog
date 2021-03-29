@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block head %}
+    <meta charset="UTF-8">
+    <title>Search Results {{ searched_post }}</title>
+{% endblock %}
+{% block content %}
+    <div>
+        {% if searched_post %}
+            <h1>You searched for {{ searched_post }}</h1>
+            <br><br>
+            {% if posts %}
+                {% for post in posts %}
+                    <li><a href="{% url 'article-detail' post.id %}">{{ post.title }}</a> - {{ post.author.first_name }} {{ post.author.last_name }}</li>
+                {% endfor %}
+            {% else %}
+                <small>No Results Found</small>
+            {% endif %}
+        {% else %}
+            <h1>Your forgot to search</h1>
+        {% endif %}
+    </div>
+{% endblock %}

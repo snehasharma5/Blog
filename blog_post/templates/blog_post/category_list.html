@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block head %}
+    <meta charset="UTF-8">
+    <title>Blog Categories</title>
+{% endblock %}
+{% block content %}
+    <h1>Blog Categories</h1>
+    <br><br>
+    <div class="row">
+        <div class="col-md-6">
+            {% for item in category_menu_list %}
+                <a class="dropdown-item" href="{% url 'category' item|slugify %}" style="border-bottom: 1px solid grey;">{{ item }}</a>
+            {% endfor %}
+        </div>
+        <div class="col-md-6">
+            {% for value in total_post.values %}
+                <a class="dropdown-item">{{ value }} <small style="color: grey;">(Total Posts)</small></a>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
