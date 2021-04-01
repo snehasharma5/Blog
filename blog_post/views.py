@@ -75,7 +75,8 @@ def category_list_view(request):
 
 
 def category_view(request, cats):
-    category_posts = Post.objects.filter(category=cats.replace('-', ' '))
+    category_posts = Post.objects.filter(category__icontains=cats.replace('-', ' '))
+    print(category_posts)
     total_post = category_posts.count()
     return render(request, 'blog_post/categories.html', {'cats': cats.title().replace('-', ' '),
                                                          'category_posts': category_posts, 'total_post': total_post})

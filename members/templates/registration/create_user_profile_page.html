@@ -4,7 +4,6 @@
     {% endblock %}
     {% block content %}
     {% if user.is_authenticated %}
-        {% if user.id == profile.user.id %}
         <h1>Create Profile</h1>
         <br><br>
         <div class="form-group">
@@ -14,7 +13,6 @@
         <button class="btn btn-primary">Create Profile Page</button>
         </form>
         </div>
-            {% endif %}
     {% else %}
         <h1>You're not allowed here</h1>
     {% endif %}
